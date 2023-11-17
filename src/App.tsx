@@ -37,14 +37,23 @@ function App() {
             setMessaging(messagingInstance)
 
             try {
-                const result = await Notification.requestPermission()
-                if (result === 'denied') {
-                    console.error('The user explicitly denied the permission request.');
-                    return;
+                function askPermission() {
+                    return new Promise(function (resolve, reject) {
+                        const permissionResult = Notification.requestPermission(function (result) {
+                            resolve(result);
+                        });
+
+                        if (permissionResult) {
+                            permissionResult.then(resolve, reject);
+                        }
+                    }).then(function (permissionResult) {
+                        if (permissionResult !== 'granted') {
+                            throw new Error("We weren't granted permission.");
+                        }
+                    });
                 }
-                if (result === 'granted') {
-                    console.info('The user accepted the permission request.');
-                }
+
+                await askPermission()
 
                 const token = getToken(messagingInstance)
                 console.log("toke", token)

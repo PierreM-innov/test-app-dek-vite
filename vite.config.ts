@@ -8,16 +8,6 @@ export default defineConfig({
     plugins: [react(),
         basicSsl(),
         VitePWA({
-            strategies: 'injectManifest',
-            injectManifest: {
-                rollupFormat: 'iife',
-            },
             registerType: 'autoUpdate',
-            srcDir: 'src',
-            filename: 'sw.ts',
-
-            devOptions: {
-                enabled: true
-            },
         })],
 })
