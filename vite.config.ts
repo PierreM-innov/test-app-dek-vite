@@ -10,15 +10,16 @@ export default defineConfig({
     plugins: [react(),
         basicSsl(),
         VitePWA({
+            strategies: 'injectManifest',
+            injectRegister: null,
             registerType: 'autoUpdate',
+            devOptions: {
+                enabled: true,
+                type: 'module',
+                navigateFallback: 'index.html'
+            },
+            workbox: {
+                sourcemap: true
+            }
         })],
-    build: {
-        outDir: "./dist",
-        lib: {
-            entry: path.resolve("./firebase-messaging-sw.js"),
-            fileName: "firebase-messaging-sw",
-            formats: ["es"]
-        },
-        emptyOutDir: false
-    },
 })
