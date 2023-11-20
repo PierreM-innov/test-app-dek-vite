@@ -24,7 +24,7 @@ if ("serviceWorker" in navigator) {
         )
         .then((registration) => {
             getToken(messaging, {
-                vapidKey: 'beF1uadOdd-MGF-4YXG0JQ9w8Fh-KsfU1aZgovOaAEI',
+                vapidKey: 'BCyo8NEIzJ8HGo_B9L1lG2_VMew4tuwgiaI2uhpMxPK3fUPd3AMXx6dnFENt0UT08HcNRW9y_pf97DnYO6wfAsY',
                 serviceWorkerRegistration : registration
             })
                 .then((currentToken) => {
