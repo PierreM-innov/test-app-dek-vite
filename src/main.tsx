@@ -14,46 +14,30 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 
-function urlBase64ToUint8Array(base64String:string) {
-    var padding = '='.repeat((4 - base64String.length % 4) % 4);
-    var base64 = (base64String + padding)
-        .replace(/\-/g, '+')
-        .replace(/_/g, '/');
+// function urlBase64ToUint8Array(base64String:string) {
+//     var padding = '='.repeat((4 - base64String.length % 4) % 4);
+//     var base64 = (base64String + padding)
+//         .replace(/\-/g, '+')
+//         .replace(/_/g, '/');
+//
+//     var rawData = window.atob(base64);
+//     var outputArray = new Uint8Array(rawData.length);
+//
+//     for (var i = 0; i < rawData.length; ++i) {
+//         outputArray[i] = rawData.charCodeAt(i);
+//     }
+//     return outputArray;
+// }
 
-    var rawData = window.atob(base64);
-    var outputArray = new Uint8Array(rawData.length);
 
-    for (var i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-}
-
-
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker
-        .register(
-            import.meta.env.MODE === 'production' ? '/sw.js' : '/dev-sw.js?dev-sw',
-            { type: import.meta.env.MODE === 'production' ? 'classic' : 'module' }
-        )
-        .then(function (registration) {
-            const subscribeOptions = {
-                userVisibleOnly: true,
-                applicationServerKey: urlBase64ToUint8Array(
-                    'BCyo8NEIzJ8HGo_B9L1lG2_VMew4tuwgiaI2uhpMxPK3fUPd3AMXx6dnFENt0UT08HcNRW9y_pf97DnYO6wfAsY',
-                ),
-            };
-
-            return registration.pushManager.subscribe(subscribeOptions);
-        })
-        .then(function (pushSubscription) {
-            console.log(
-                'Received PushSubscription: ',
-                JSON.stringify(pushSubscription),
-            );
-            return pushSubscription;
+if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then((registration) => {
+            console.log('SW registered:', registration);
+        }).catch((registrationError) => {
+            console.log('SW registration failed:', registrationError);
         });
 }
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -10,16 +10,20 @@ export default defineConfig({
     plugins: [react(),
         basicSsl(),
         VitePWA({
-            strategies: 'injectManifest',
-            injectRegister: null,
             registerType: 'autoUpdate',
-            devOptions: {
-                enabled: true,
-                type: 'module',
-                navigateFallback: 'index.html'
-            },
-            workbox: {
-                sourcemap: true
+            includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+            injectRegister: 'inline',
+            manifest: {
+                name: 'Your App Name',
+                short_name: 'App',
+                theme_color: '#ffffff',
+                icons: [
+                    {
+                        src: 'path/to/icon.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                ],
             }
         })],
 })
