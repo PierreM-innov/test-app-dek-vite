@@ -10,6 +10,12 @@ export default defineConfig({
     plugins: [react(),
         basicSsl(),
         VitePWA({
-            registerType: 'autoUpdate'
+            registerType: 'autoUpdate',
+            injectRegister: 'inline',
+            manifest: {
+                name: 'DK',
+                short_name: 'App',
+                theme_color: '#ffffff',
+            }
         })],
 })
