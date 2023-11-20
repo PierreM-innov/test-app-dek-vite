@@ -14,7 +14,7 @@ export default defineConfig({
             strategies: 'injectManifest',
             injectRegister: 'inline',
             injectManifest: {
-                injectionPoint: undefined
+                injectionPoint: undefined,
             },
             manifest: {
                 name: 'DK',
