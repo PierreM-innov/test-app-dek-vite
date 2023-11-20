@@ -38,7 +38,7 @@ if ('serviceWorker' in navigator) {
 
             const subscription = await registration.pushManager.subscribe({
                 userVisibleOnly: true,
-                applicationServerKey: urlBase64ToUint8Array('BLfHnz1uJeoy9zHHgnxFE1jcL5zn_HOeqbS1LDkHkwMcDpXxjmDrOvyCmG21f6qs0eVoaO4QWP0Rtii2D98cU3I'),
+                applicationServerKey: urlBase64ToUint8Array('BI_-vdRg25ucEoPrL6f8yLgayiP5ACZ9f58zpsBQagF0i30VkDKGGHpS-BrLT7CdgKKFG3wfwlgVQrxUy0s-_4E'),
             });
 
             console.log('Push subscription:', JSON.stringify(subscription));
