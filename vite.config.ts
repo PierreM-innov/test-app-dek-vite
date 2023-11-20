@@ -11,19 +11,12 @@ export default defineConfig({
         basicSsl(),
         VitePWA({
             registerType: 'autoUpdate',
-            includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+            // includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
             injectRegister: 'inline',
             manifest: {
-                name: 'Your App Name',
+                name: 'DK',
                 short_name: 'App',
                 theme_color: '#ffffff',
-                icons: [
-                    {
-                        src: 'path/to/icon.png',
-                        sizes: '192x192',
-                        type: 'image/png',
-                    },
-                ],
             }
         })],
 })
