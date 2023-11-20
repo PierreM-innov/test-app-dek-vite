@@ -11,11 +11,15 @@ export default defineConfig({
         basicSsl(),
         VitePWA({
             registerType: 'autoUpdate',
-            injectRegister: 'inline',
+            injectRegister: null,
             manifest: {
                 name: 'DK',
                 short_name: 'App',
                 theme_color: '#ffffff',
+            },
+            devOptions: {
+                enabled: true,
+                type: 'module',
             }
         })],
 })
