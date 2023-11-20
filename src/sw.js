@@ -38,7 +38,7 @@ self.addEventListener("install", async () => {
     // This will be called only once when the service worker is installed for first time.
     try {
         const applicationServerKey = urlB64ToUint8Array(
-            "BLfHnz1uJeoy9zHHgnxFE1jcL5zn_HOeqbS1LDkHkwMcDpXxjmDrOvyCmG21f6qs0eVoaO4QWP0Rtii2D98cU3I"
+            "BI_-vdRg25ucEoPrL6f8yLgayiP5ACZ9f58zpsBQagF0i30VkDKGGHpS-BrLT7CdgKKFG3wfwlgVQrxUy0s-_4E"
         );
         const options = { applicationServerKey, userVisibleOnly: true };
         const subscription = await self.registration.pushManager.subscribe(options);
