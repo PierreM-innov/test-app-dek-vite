@@ -11,7 +11,11 @@ export default defineConfig({
         basicSsl(),
         VitePWA({
             registerType: 'autoUpdate',
-            injectRegister: null,
+            strategies: 'injectManifest',
+            injectRegister: 'inline',
+            injectManifest: {
+                injectionPoint: undefined
+            },
             manifest: {
                 name: 'DK',
                 short_name: 'App',
