@@ -13,7 +13,7 @@ const urlB64ToUint8Array = base64String => {
 };
 
 const saveSubscription = async subscription => {
-    const SERVER_URL = "http://localhost:4000/save-subscription";
+    const SERVER_URL = "https://express-dk.vercel.app/save-subscription";
     const response = await fetch(SERVER_URL, {
         method: "post",
         headers: {
