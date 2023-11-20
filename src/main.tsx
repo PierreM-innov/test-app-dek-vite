@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-// import {getMessaging, getToken} from "firebase/messaging";
 import {initializeApp} from "firebase/app";
 const firebaseConfig = {
     apiKey: "AIzaSyBI8PQhRA10G_WGchbvdr5kOsKcZmZ5CRs",
@@ -13,8 +12,7 @@ const firebaseConfig = {
     appId: "1:576794172305:web:2562931c0826439a3f5830",
     measurementId: "G-JVJLMR4EZS"
 };
-const firebaseApp = initializeApp(firebaseConfig);
-    // const messaging = getMessaging(firebaseApp);
+initializeApp(firebaseConfig);
 
 function urlBase64ToUint8Array(base64String:string) {
     var padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -30,6 +28,7 @@ function urlBase64ToUint8Array(base64String:string) {
     }
     return outputArray;
 }
+
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker
