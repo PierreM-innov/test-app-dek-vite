@@ -16,11 +16,6 @@ export default defineConfig({
             injectManifest: {
                 injectionPoint: undefined,
             },
-            manifest: {
-                name: 'DK',
-                short_name: 'App',
-                theme_color: '#ffffff',
-            },
             devOptions: {
                 enabled: true,
                 type: 'module',
